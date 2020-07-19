@@ -16,8 +16,8 @@ class Dishdetail extends Component {
                     {/* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat */}
                     {new Intl.DateTimeFormat('en-US', {
                             year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
+                            month: 'short',
+                            day: '2-digit'
                         }).format(new Date(comment.date))}
                     </p>
                 </li>
