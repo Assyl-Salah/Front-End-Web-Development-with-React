@@ -69,10 +69,6 @@ import { Card, CardImg, CardBody, CardText, CardTitle } from 'reactstrap';
         <RenderComments comments={props.dish.comments}/>
             </div>)
         }
-       
-      
-       
-   
         return (
             <div >
                 
