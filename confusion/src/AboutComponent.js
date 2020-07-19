@@ -28,8 +28,9 @@ function About(props) {
 
     const leaders = props.leaders.map((leader) => {
         return (
-            <Renderleader leader={leader}/>
-          
+            <div key={leader.id} className="col-12 mt-5">
+                <Renderleader leader={leader} />
+            </div>
         );
     });
 
