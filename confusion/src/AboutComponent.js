@@ -9,6 +9,7 @@ function Renderleader({leader ,isLoading ,ErrMess }){
     if (leader != null) {
     return (
               <div key={leader.id} className="col-12 mt-5">
+                  <Stagger in >
                  <Fade in >
                 <Media tag="li">
                   <Media left >
@@ -22,6 +23,7 @@ function Renderleader({leader ,isLoading ,ErrMess }){
                   </Media>
                 </Media>
                 </Fade>
+                </Stagger>
               </div>
           
       );
@@ -34,9 +36,8 @@ function About(props) {
         return (
            
             <div key={leader.id} className="col-12 mt-5">
-               <Stagger in >
                 <Renderleader leader={leader} isLoading={leadersLoading} ErrMess={leadersFailed} />
-                </Stagger>
+               
             </div>
             
         );
