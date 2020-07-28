@@ -1,15 +1,18 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { leadersFailed, leadersLoading } from './redux/ActionCreators';
+import { baseUrl } from './shared/baseUrl';
+import {  Fade, Stagger } from 'react-animation-components';
 
-
-function Renderleader({leader}){
+function Renderleader({leader ,isLoading ,ErrMess }){
     if (leader != null) {
     return (
               <div key={leader.id} className="col-12 mt-5">
+                 <Fade in >
                 <Media tag="li">
                   <Media left >
-                      <Media object src={leader.image} alt={leader.name} />
+                      <Media object src={baseUrl + leader.image} alt={leader.name} />
                   </Media>
                   <Media body className="ml-5 text-left">
                     <Media left heading>{leader.name}</Media>
@@ -18,6 +21,7 @@ function Renderleader({leader}){
                     <p>{leader.description}</p>
                   </Media>
                 </Media>
+                </Fade>
               </div>
           
       );
@@ -26,11 +30,15 @@ function Renderleader({leader}){
 
 function About(props) {
 
-    const leaders = props.leaders.map((leader) => {
+    const leaders = props.leaders.leaders.map((leader) => {
         return (
+           
             <div key={leader.id} className="col-12 mt-5">
-                <Renderleader leader={leader} />
+               <Stagger in >
+                <Renderleader leader={leader} isLoading={leadersLoading} ErrMess={leadersFailed} />
+                </Stagger>
             </div>
+            
         );
     });
 
